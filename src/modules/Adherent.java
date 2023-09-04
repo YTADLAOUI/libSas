@@ -1,16 +1,20 @@
 package modules;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Adherent {
     public Adherent() {
     }
-    private string nom;
+    private String nom;
     private int numero;
+    private List<Resarvation> Resarvations = new ArrayList<>();
 
-    public string getNom() {
+    public String getNom() {
         return nom;
     }
 
-    public void setNom(string nom) {
+    public void setNom(String nom) {
         this.nom = nom;
     }
 

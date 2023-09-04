@@ -7,14 +7,14 @@ import java.util.List;
 public class Author {
     public Author(){
     }
-    private string nom;
+    private String nom;
     private List<Livre> Livres = new ArrayList<>();
 
-    public string getNom() {
+    public String getNom() {
         return nom;
     }
 
-    public void setNom(string nom) {
+    public void setNom(String nom) {
         this.nom = nom;
     }
 

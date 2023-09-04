@@ -1,12 +1,17 @@
 package modules;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Livre {
     public Livre() {
     }
     private int isbn;
-    private string titre;
-    private string quantiteTotal;
-    private  string quantitePerdu;
+    private String titre;
+    private String quantiteTotal;
+    private  String quantitePerdu;
+    private boolean softDelete;
+    private List<Resarvation> Resarvations = new ArrayList<>();
 
     public int getIsbn() {
         return isbn;
@@ -16,27 +21,35 @@ public class Livre {
         this.isbn = isbn;
     }
 
-    public string getTitre() {
+    public String getTitre() {
         return titre;
     }
 
-    public void setTitre(string titre) {
+    public void setTitre(String titre) {
         this.titre = titre;
     }
 
-    public string getQuantiteTotal() {
+    public boolean isSoftDelete() {
+        return softDelete;
+    }
+
+    public void setSoftDelete(boolean softDelete) {
+        this.softDelete = softDelete;
+    }
+
+    public String getQuantiteTotal() {
         return quantiteTotal;
     }
 
-    public void setQuantiteTotal(string quantiteTotal) {
+    public void setQuantiteTotal(String quantiteTotal) {
         this.quantiteTotal = quantiteTotal;
     }
 
-    public string getQuantitePerdu() {
+    public String getQuantitePerdu() {
         return quantitePerdu;
     }
 
-    public void setQuantitePerdu(string quantitePerdu) {
+    public void setQuantitePerdu(String quantitePerdu) {
         this.quantitePerdu = quantitePerdu;
     }
 }
