@@ -23,5 +23,21 @@ public class Livre {
     public void setTitre(string titre) {
         this.titre = titre;
     }
+
+    public string getQuantiteTotal() {
+        return quantiteTotal;
+    }
+
+    public void setQuantiteTotal(string quantiteTotal) {
+        this.quantiteTotal = quantiteTotal;
+    }
+
+    public string getQuantitePerdu() {
+        return quantitePerdu;
+    }
+
+    public void setQuantitePerdu(string quantitePerdu) {
+        this.quantitePerdu = quantitePerdu;
+    }
 }
 
