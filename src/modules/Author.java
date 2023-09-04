@@ -18,7 +18,15 @@ public class Author {
         this.nom = nom;
     }
 
+    public Author(String nom) {
+        this.nom = nom;
+    }
 
-
-
+    @Override
+    public String toString() {
+        return "Author{" +
+                "nom='" + nom + '\'' +
+                ", Livres=" + Livres +
+                '}';
+    }
 }

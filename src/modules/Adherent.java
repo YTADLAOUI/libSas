@@ -10,6 +10,11 @@ public class Adherent {
     private int numero;
     private List<Resarvation> Resarvations = new ArrayList<>();
 
+    public Adherent(String nom, int numero) {
+        this.nom = nom;
+        this.numero = numero;
+    }
+
     public String getNom() {
         return nom;
     }
@@ -24,5 +29,14 @@ public class Adherent {
 
     public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    @Override
+    public String toString() {
+        return "Adherent{" +
+                "nom='" + nom + '\'' +
+                ", numero=" + numero +
+                ", Resarvations=" + Resarvations +
+                '}';
     }
 }

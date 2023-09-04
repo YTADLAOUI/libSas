@@ -52,5 +52,23 @@ public class Livre {
     public void setQuantitePerdu(String quantitePerdu) {
         this.quantitePerdu = quantitePerdu;
     }
+
+    public Livre(int isbn, String titre, String quantiteTotal, String quantitePerdu) {
+        this.isbn = isbn;
+        this.titre = titre;
+        this.quantiteTotal = quantiteTotal;
+        this.quantitePerdu = quantitePerdu;
+    }
+
+    @Override
+    public String toString() {
+        return "Livre{" +
+                "isbn=" + isbn +
+                ", titre='" + titre + '\'' +
+                ", quantiteTotal='" + quantiteTotal + '\'' +
+                ", quantitePerdu='" + quantitePerdu + '\'' +
+                ", Resarvations=" + Resarvations +
+                '}';
+    }
 }
 
