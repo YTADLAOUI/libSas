@@ -55,7 +55,8 @@ public class Main {
         System.out.println("reservation 3 info:" + resarvation3.toString());*/
         LivreController dd = new LivreController();
 
-        System.out.println(dd.index());
+        dd.index();
+
 
 
 
