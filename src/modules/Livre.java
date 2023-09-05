@@ -4,15 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Livre {
-    public Livre() {
-    }
+
     private int isbn;
     private String titre;
     private int quantiteTotal;
     private  int quantitePerdu;
     private int authorId;
     private boolean softDelete;
+    public Livre() {
+    }
+    public Livre(int isbn, String titre, int quantiteTotal, int quantitePerdu, int authorId) {
+        this.isbn = isbn;
+        this.titre = titre;
+        this.quantiteTotal = quantiteTotal;
+        this.quantitePerdu = quantitePerdu;
+        this.authorId = authorId;
 
+    }
     private List<Resarvation> Resarvations = new ArrayList<>();
 
     public List<Resarvation> getResarvations() {
@@ -63,15 +71,6 @@ public class Livre {
         this.quantitePerdu = quantitePerdu;
     }
 
-    public Livre(int isbn, String titre, int quantiteTotal, int quantitePerdu, int authorId, boolean softDelete) {
-        this.isbn = isbn;
-        this.titre = titre;
-        this.quantiteTotal = quantiteTotal;
-        this.quantitePerdu = quantitePerdu;
-        this.authorId = authorId;
-        this.softDelete = softDelete;
-
-    }
 
     @Override
     public String toString() {

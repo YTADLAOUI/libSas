@@ -1,3 +1,4 @@
+import Controllers.LivreController;
 import enums.StatusLivre;
 import modules.Adherent;
 import modules.Author;
@@ -18,10 +19,10 @@ public class Main {
     Author author1 = new Author("youssef");
     Author author2 = new Author("hicham");
     Author author3 = new Author("anas");
-    Livre livre1 = new Livre(1234,"the peerless dad",10,0,1,false);
-    Livre livre2 = new Livre(1235,"the peerless mom",10,0,2,false);
-    Livre livre3 = new Livre(1236,"the peerless bro",10,0,3,false);
-    Livre livre4 = new Livre(1237,"the peerless sis",10,0,3,false);
+    Livre livre1 = new Livre(1234,"the peerless dad",10,0,1);
+    Livre livre2 = new Livre(1235,"the peerless mom",10,0,2);
+    Livre livre3 = new Livre(1236,"the peerless bro",10,0,3);
+    Livre livre4 = new Livre(1237,"the peerless sis",10,0,3);
         Adherent adherent1= new Adherent("nadir",0600000000);
         Adherent adherent2= new Adherent("adnane",060000001);
         Date currentDate = new Date();
@@ -40,7 +41,7 @@ public class Main {
          adherent1.setResarvations(Arrays.asList(resarvation1,resarvation2));
          adherent2.setResarvations(Arrays.asList(resarvation3));
 
-        System.out.println("livre 1 info:" + livre1.toString());
+       /* System.out.println("livre 1 info:" + livre1.toString());
         System.out.println("livre 2 info:" + livre2.toString());
         System.out.println("livre 3 info:" + livre3.toString());
         System.out.println("livre 4 info:" + livre4.toString());
@@ -51,16 +52,10 @@ public class Main {
         System.out.println("adherent 2 info:" + adherent2.toString());
         System.out.println("reservation 1 info:" + resarvation1.toString());
         System.out.println("reservation 2 info:" + resarvation2.toString());
-        System.out.println("reservation 3 info:" + resarvation3.toString());
+        System.out.println("reservation 3 info:" + resarvation3.toString());*/
+        LivreController dd = new LivreController();
 
-
-
-
-
-
-
-
-
+        System.out.println(dd.index());
 
 
 
