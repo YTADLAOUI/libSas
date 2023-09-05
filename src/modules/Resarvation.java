@@ -9,7 +9,7 @@ public class Resarvation {
     private Date dateDeRetoure;
     public StatusLivre statusLivre;
 
-    public Resarvation(Date dateDemprunt, Date datePrevueDeRetoure, Date dateDeRetoure, StatusLivre statusLivre) {
+    public Resarvation(Date dateDemprunt, Date datePrevueDeRetoure, StatusLivre statusLivre) {
         this.dateDemprunt = dateDemprunt;
         this.datePrevueDeRetoure = datePrevueDeRetoure;
         this.dateDeRetoure = dateDeRetoure;

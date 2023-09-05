@@ -13,6 +13,13 @@ public class Livre {
     private boolean softDelete;
     private List<Resarvation> Resarvations = new ArrayList<>();
 
+    public List<Resarvation> getResarvations() {
+        return Resarvations;
+    }
+
+    public void setResarvations(List<Resarvation> resarvations) {
+        Resarvations = resarvations;
+    }
     public int getIsbn() {
         return isbn;
     }
@@ -43,6 +50,7 @@ public class Livre {
 
     public void setQuantiteTotal(String quantiteTotal) {
         this.quantiteTotal = quantiteTotal;
+
     }
 
     public String getQuantitePerdu() {
