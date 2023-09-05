@@ -10,6 +10,7 @@ public class Author {
     private String nom;
     private List<Livre> Livres = new ArrayList<>();
 
+
     public String getNom() {
         return nom;
     }
@@ -20,6 +21,14 @@ public class Author {
 
     public Author(String nom) {
         this.nom = nom;
+    }
+
+    public List<Livre> getLivres() {
+        return Livres;
+    }
+
+    public void setLivres(List<Livre> livres) {
+        Livres = livres;
     }
 
     @Override

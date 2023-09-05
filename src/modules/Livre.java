@@ -8,9 +8,11 @@ public class Livre {
     }
     private int isbn;
     private String titre;
-    private String quantiteTotal;
-    private  String quantitePerdu;
+    private int quantiteTotal;
+    private  int quantitePerdu;
+    private int authorId;
     private boolean softDelete;
+
     private List<Resarvation> Resarvations = new ArrayList<>();
 
     public List<Resarvation> getResarvations() {
@@ -44,28 +46,31 @@ public class Livre {
         this.softDelete = softDelete;
     }
 
-    public String getQuantiteTotal() {
+    public int getQuantiteTotal() {
         return quantiteTotal;
     }
 
-    public void setQuantiteTotal(String quantiteTotal) {
+    public void setQuantiteTotal(int quantiteTotal) {
         this.quantiteTotal = quantiteTotal;
 
     }
 
-    public String getQuantitePerdu() {
+    public int getQuantitePerdu() {
         return quantitePerdu;
     }
 
-    public void setQuantitePerdu(String quantitePerdu) {
+    public void setQuantitePerdu(int quantitePerdu) {
         this.quantitePerdu = quantitePerdu;
     }
 
-    public Livre(int isbn, String titre, String quantiteTotal, String quantitePerdu) {
+    public Livre(int isbn, String titre, int quantiteTotal, int quantitePerdu, int authorId, boolean softDelete) {
         this.isbn = isbn;
         this.titre = titre;
         this.quantiteTotal = quantiteTotal;
         this.quantitePerdu = quantitePerdu;
+        this.authorId = authorId;
+        this.softDelete = softDelete;
+
     }
 
     @Override
@@ -75,6 +80,8 @@ public class Livre {
                 ", titre='" + titre + '\'' +
                 ", quantiteTotal='" + quantiteTotal + '\'' +
                 ", quantitePerdu='" + quantitePerdu + '\'' +
+                ", authorId=" + authorId +
+                ", softDelete=" + softDelete +
                 ", Resarvations=" + Resarvations +
                 '}';
     }

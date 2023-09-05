@@ -8,12 +8,16 @@ public class Resarvation {
     private Date datePrevueDeRetoure;
     private Date dateDeRetoure;
     public StatusLivre statusLivre;
+    private int adherentID;
+    private int livreID;
 
-    public Resarvation(Date dateDemprunt, Date datePrevueDeRetoure, StatusLivre statusLivre) {
+    public Resarvation(Date dateDemprunt, Date datePrevueDeRetoure, Date dateDeRetoure, StatusLivre statusLivre, int adherentID, int livreID) {
         this.dateDemprunt = dateDemprunt;
         this.datePrevueDeRetoure = datePrevueDeRetoure;
         this.dateDeRetoure = dateDeRetoure;
         this.statusLivre = statusLivre;
+        this.adherentID = adherentID;
+        this.livreID = livreID;
     }
 
     public Resarvation() {
@@ -50,6 +54,8 @@ public class Resarvation {
                 ", datePrevueDeRetoure=" + datePrevueDeRetoure +
                 ", dateDeRetoure=" + dateDeRetoure +
                 ", statusLivre=" + statusLivre +
+                ", adherentID=" + adherentID +
+                ", livreID=" + livreID +
                 '}';
     }
 }

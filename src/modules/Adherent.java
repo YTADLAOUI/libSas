@@ -10,6 +10,14 @@ public class Adherent {
     private int numero;
     private List<Resarvation> Resarvations = new ArrayList<>();
 
+    public List<Resarvation> getResarvations() {
+        return Resarvations;
+    }
+
+    public void setResarvations(List<Resarvation> resarvations) {
+        Resarvations = resarvations;
+    }
+
     public Adherent(String nom, int numero) {
         this.nom = nom;
         this.numero = numero;
