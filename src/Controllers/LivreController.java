@@ -30,6 +30,7 @@ public class LivreController {
                 System.out.println("QuantiteTotal: " + quantiteTotal);
                 System.out.println("QuantitePerdu: " + quantitePerdu);
                 System.out.println("Author: " + authorID);
+                System.out.println("----------");
             }
         }catch (SQLException e){
             e.printStackTrace();
