@@ -38,6 +38,14 @@ public class Livre {
         this.isbn = isbn;
     }
 
+    public int getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(int authorId) {
+        this.authorId = authorId;
+    }
+
     public String getTitre() {
         return titre;
     }
