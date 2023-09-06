@@ -29,7 +29,7 @@ public class Livre {
         System.out.print("Enter quantiteTotal:");
         while (!scanner.hasNextInt()) {
             System.out.print("Enter quantiteTotal: ");
-            scanner.next();
+           this.quantiteTotal= scanner.nextInt();
         }
         this.quantitePerdu = scanner.nextInt();
         scanner.nextLine();
@@ -49,11 +49,10 @@ public class Livre {
         this.authorId = scanner.nextInt();
         scanner.nextLine();
     }
-    public Livre(int isbn, String titre, int quantiteTotal, int quantitePerdu, int authorId) {
+    public Livre(int isbn, String titre, int quantiteTotal, int authorId) {
         this.isbn = isbn;
         this.titre = titre;
         this.quantiteTotal = quantiteTotal;
-        this.quantitePerdu = quantitePerdu;
         this.authorId = authorId;
 
     }
