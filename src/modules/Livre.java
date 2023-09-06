@@ -29,17 +29,17 @@ public class Livre {
         System.out.print("Enter quantiteTotal:");
         while (!scanner.hasNextInt()) {
             System.out.print("Enter quantiteTotal: ");
-           this.quantiteTotal= scanner.nextInt();
+                scanner.nextInt();
         }
-        this.quantitePerdu = scanner.nextInt();
+        this.quantiteTotal = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Enter quantitePerdu: ");
+        /*System.out.print("Enter quantitePerdu: ");
         while (!scanner.hasNextInt()) {
             System.out.print("Enter quantitePerdu: ");
             scanner.next();
         }
         this.quantitePerdu = scanner.nextInt();
-        scanner.nextLine();
+        scanner.nextLine();*/
 
         System.out.print("Enter authorID: ");
         while (!scanner.hasNextInt()) {
@@ -47,7 +47,7 @@ public class Livre {
             scanner.next();
         }
         this.authorId = scanner.nextInt();
-        scanner.nextLine();
+          scanner.nextLine();
     }
     public Livre(int isbn, String titre, int quantiteTotal, int authorId) {
         this.isbn = isbn;

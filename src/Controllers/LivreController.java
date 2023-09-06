@@ -42,12 +42,11 @@ public class LivreController {
     public void store(Livre livre) {
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO livre (isbn, titre,quantiteTotal, quantitePerdu, authorId) VALUES (?,?,?,?,?)");
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO livre (isbn, titre,quantiteTotal, authorId) VALUES (?,?,?,?)");
             preparedStatement.setInt(1, livre.getIsbn());
             preparedStatement.setString(2, livre.getTitre());
             preparedStatement.setInt(3, livre.getQuantiteTotal());
-            preparedStatement.setInt(4, livre.getQuantitePerdu());
-            preparedStatement.setInt(5, livre.getAuthorId());
+            preparedStatement.setInt(4, livre.getAuthorId());
             preparedStatement.executeUpdate();
             System.out.println("goood");
             /*livre.getIsbn();
