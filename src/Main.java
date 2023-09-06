@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        LivreController livre= new LivreController();
+        LivreController livreController= new LivreController();
         int choice;
         Scanner input = new Scanner(System.in);
         do {
@@ -36,7 +36,11 @@ public class Main {
                 case 0:
                     break;
                 case 1:
-                    livre.index();
+                    livreController.index();
+                    break;
+                case 2:
+                    Livre livre= new Livre();
+                    livreController.store(livre);
                     break;
 
 

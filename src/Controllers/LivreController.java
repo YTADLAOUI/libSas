@@ -12,14 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LivreController {
-   Connection connection = MyJDBC.getConnection();
-    public void index(){
+    Connection connection = MyJDBC.getConnection();
+
+    public void index() {
 
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("select * from livre JOIN author ON livre.authorID = author.id");
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 int isbn = resultSet.getInt("isbn");
                 String titre = resultSet.getString("titre");
                 int quantiteTotal = resultSet.getInt("quantiteTotal");
@@ -32,25 +33,51 @@ public class LivreController {
                 System.out.println("Author: " + authorID);
                 System.out.println("----------");
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
 
-    public void store(Livre livre){
+    public void store(Livre livre) {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO livre (isbn, titre,quantiteTotal, quantitePerdu, authoreID) VALUES (?, ?, ?, ?,?)");
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO livre (isbn, titre,quantiteTotal, quantitePerdu, authoreId) VALUES (?,?,?,?,?)");
             preparedStatement.setInt(1, livre.getIsbn());
             preparedStatement.setString(2, livre.getTitre());
             preparedStatement.setInt(3, livre.getQuantiteTotal());
             preparedStatement.setInt(4, livre.getQuantitePerdu());
             preparedStatement.setInt(5, livre.getAuthorId());
-
-
-        }catch (Exception e){
+            preparedStatement.executeUpdate();
+            System.out.println("goood");
+            /*livre.getIsbn();
+            livre.getAuthorId();
+            livre.getQuantiteTotal();*/
+        } catch (Exception e) {
             e.printStackTrace();
+            throw new RuntimeException("Failed to insert the book into the database.");
         }
     }
-//    public String;
+
+    public  Boolean checkIsbn(int Isbn) {
+
+        try (
+                PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) FROM livre WHERE isbn = ?")) {
+            preparedStatement.setInt(1, Isbn);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                resultSet.next();
+                int count = resultSet.getInt(1);
+
+                if (count > 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 }
