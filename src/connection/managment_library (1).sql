@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 05 sep. 2023 à 10:32
+-- Généré le : mer. 06 sep. 2023 à 10:49
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -32,6 +32,13 @@ CREATE TABLE `adherent` (
   `nom` varchar(100) DEFAULT NULL,
   `numero` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `adherent`
+--
+
+INSERT INTO `adherent` (`id`, `nom`, `numero`) VALUES
+(1, 'anas', 678797767);
 
 -- --------------------------------------------------------
 
@@ -62,8 +69,18 @@ CREATE TABLE `livre` (
   `titre` varchar(100) DEFAULT NULL,
   `quantiteTotal` int(11) DEFAULT NULL,
   `quantitePerdu` int(11) DEFAULT NULL,
-  `authorId` int(11) DEFAULT NULL
+  `authorId` int(11) DEFAULT NULL,
+  `softDelete` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `livre`
+--
+
+INSERT INTO `livre` (`isbn`, `titre`, `quantiteTotal`, `quantitePerdu`, `authorId`, `softDelete`) VALUES
+(1234, 'the peerless', 10, 1, 1, 0),
+(4568, 'HHHHH', 88, 0, 1, 0),
+(45678, 'HHHHH', 88, 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -80,6 +97,26 @@ CREATE TABLE `reservation` (
   `livreID` int(11) DEFAULT NULL,
   `statusLivre` enum('Disponible','Emprunté','perdu') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `reservation`
+--
+
+INSERT INTO `reservation` (`id`, `dateDemprunt`, `datePrevueDeRetoure`, `dateDeRetoure`, `adherentID`, `livreID`, `statusLivre`) VALUES
+(2, '2023-09-13', '2023-09-04', NULL, 1, 1234, 'Disponible');
+
+--
+-- Déclencheurs `reservation`
+--
+DELIMITER $$
+CREATE TRIGGER `addPerdus` AFTER UPDATE ON `reservation` FOR EACH ROW BEGIN
+    IF NEW.statusLivre = "perdu" THEN
+        UPDATE livre SET quantitePerdu = quantitePerdu + 1
+        WHERE livre.isbn = NEW.livreID;
+    END IF;
+END
+$$
+DELIMITER ;
 
 --
 -- Index pour les tables déchargées
@@ -120,7 +157,7 @@ ALTER TABLE `reservation`
 -- AUTO_INCREMENT pour la table `adherent`
 --
 ALTER TABLE `adherent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `author`
@@ -132,7 +169,7 @@ ALTER TABLE `author`
 -- AUTO_INCREMENT pour la table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Contraintes pour les tables déchargées

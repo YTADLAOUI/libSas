@@ -38,6 +38,8 @@ public class LivreController {
 
     }
 
-//    public String store(){}
+    public void store(){
+
+    }
 //    public String;
 }
