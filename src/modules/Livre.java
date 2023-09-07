@@ -17,37 +17,6 @@ public class Livre {
     private boolean softDelete;
 
     public Livre() {
-        do {
-            System.out.print("Enter Unique Isbn: ");
-            this.isbn = Integer.parseInt(scanner.nextLine());
-        }while (livreController.checkIsbn(this.isbn));
-
-        do {
-            System.out.print("Enter titre: ");
-            this.titre = scanner.nextLine();
-        } while (!titre.matches("\\S+"));
-        System.out.print("Enter quantiteTotal:");
-        while (!scanner.hasNextInt()) {
-            System.out.print("Enter quantiteTotal: ");
-                scanner.nextInt();
-        }
-        this.quantiteTotal = scanner.nextInt();
-        scanner.nextLine();
-        /*System.out.print("Enter quantitePerdu: ");
-        while (!scanner.hasNextInt()) {
-            System.out.print("Enter quantitePerdu: ");
-            scanner.next();
-        }
-        this.quantitePerdu = scanner.nextInt();
-        scanner.nextLine();*/
-
-        System.out.print("Enter authorID: ");
-        while (!scanner.hasNextInt()) {
-            System.out.print("Enter authorID: ");
-            scanner.next();
-        }
-        this.authorId = scanner.nextInt();
-          scanner.nextLine();
     }
     public Livre(int isbn, String titre, int quantiteTotal, int authorId) {
         this.isbn = isbn;

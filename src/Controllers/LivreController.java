@@ -54,7 +54,7 @@ public class LivreController {
             livre.getQuantiteTotal();*/
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException("Failed to insert the book into the database.");
+            throw new RuntimeException("Failed to insert le livre dans la baseDonne.");
         }
     }
 

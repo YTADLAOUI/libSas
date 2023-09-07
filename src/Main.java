@@ -16,6 +16,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         LivreController livreController= new LivreController();
+        Livre livre = new Livre();
         int choice;
         Scanner input = new Scanner(System.in);
         do {
@@ -39,8 +40,37 @@ public class Main {
                     livreController.index();
                     break;
                 case 2:
-                    Livre livre= new Livre();
+                    do {
+                        System.out.print("Enter Unique Isbn: ");
+                        livre.setIsbn(input.nextInt());
+                    }while (livreController.checkIsbn(livre.getIsbn()));
+
+                    do {
+                        System.out.print("Enter titre: ");
+                        livre.setTitre(input.nextLine()) ;
+                    } while (!livre.getTitre().matches("\\S+"));
+                    System.out.print("Enter quantiteTotal:");
+                    while (!input.hasNextInt()) {
+                        System.out.print("Enter quantiteTotal: ");
+                        input.nextInt();
+                    }
+                    livre.setQuantiteTotal(input.nextInt()) ;
+                    input.nextLine();
+
+                    System.out.print("Enter authorID: ");
+                    while (!input.hasNextInt()) {
+                        System.out.print("Enter authorID: ");
+                        input.next();
+                    }
+                    livre.setAuthorId(input.nextInt());
+                    input.nextLine();
                     livreController.store(livre);
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+
                     break;
 
 
@@ -56,6 +86,8 @@ public class Main {
                 "----------------------------------------------------------------------------------------------------------");
         System.out.println("Press 1 pour afficher touts les livres.");
         System.out.println("Press 2 pour insert un livre.");
+        System.out.println("Press 3 Update livre");
+        System.out.println("Press 4 Delete livre");
         System.out.println("Press 0 to Exit Application.");
         System.out.println(
                 "-------------------------------------------------------------------------------------------------------");
