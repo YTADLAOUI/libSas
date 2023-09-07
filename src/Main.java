@@ -67,7 +67,27 @@ public class Main {
                     livreController.store(livre);
                     break;
                 case 3:
+                    do{
+                        System.out.print("modifier Unique Isbn: ");
+                        livre.setIsbn(input.nextInt());
+                    }while(livreController.checkIsbn(livre.getIsbn()));
+                    do {
+                        System.out.print("modifier Titre: ");
+                        livre.setTitre(input.nextLine());
+                    }while(livre.getTitre().matches("\\S+"));
 
+                    while (!input.hasNextInt()) {
+                        System.out.print("modifier quantiteTotal: ");
+                        input.nextInt();
+                    }
+                    livre.setQuantiteTotal(input.nextInt()) ;
+                    System.out.print("modfier authorID: ");
+                    while (!input.hasNextInt()) {
+                        System.out.print("modifier authorID: ");
+                        input.next();
+                    }
+                    livre.setAuthorId(input.nextInt());
+                    input.nextLine();
                     break;
                 case 4:
 
