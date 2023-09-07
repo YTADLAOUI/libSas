@@ -44,12 +44,13 @@ public class Main {
                         System.out.print("Enter Unique Isbn: ");
                         livre.setIsbn(input.nextInt());
                     }while (livreController.checkIsbn(livre.getIsbn()));
-
+                    System.out.print("Enter titre: ");
                     do {
-                        System.out.print("Enter titre: ");
                         livre.setTitre(input.nextLine()) ;
+
                     } while (!livre.getTitre().matches("\\S+"));
                     System.out.print("Enter quantiteTotal:");
+
                     while (!input.hasNextInt()) {
                         System.out.print("Enter quantiteTotal: ");
                         input.nextInt();
@@ -71,11 +72,11 @@ public class Main {
                         System.out.print("modifier Unique Isbn: ");
                         livre.setIsbn(input.nextInt());
                     }while(livreController.checkIsbn(livre.getIsbn()));
+                    System.out.print("modifer titre: ");
                     do {
-                        System.out.print("modifier Titre: ");
-                        livre.setTitre(input.nextLine());
-                    }while(livre.getTitre().matches("\\S+"));
-
+                        livre.setTitre(input.nextLine()) ;
+                    } while (!livre.getTitre().matches("\\S+"));
+                    System.out.print("modifier quantiteTotal: ");
                     while (!input.hasNextInt()) {
                         System.out.print("modifier quantiteTotal: ");
                         input.nextInt();

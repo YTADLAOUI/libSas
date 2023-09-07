@@ -56,7 +56,7 @@ public class LivreController {
     }
 
     public  Boolean checkIsbn(int Isbn) {
-            try{ PreparedStatement preparedStatement= connection.prepareStatement("SELECT COUNT FROM lIVRE WHERE isbn=?");
+            try{ PreparedStatement preparedStatement= connection.prepareStatement("SELECT COUNT(*) FROM lIVRE WHERE isbn=?");
                 preparedStatement.setInt(1,Isbn);
                 ResultSet resultSet = preparedStatement.executeQuery();
                 resultSet.next();
