@@ -18,14 +18,22 @@ public class Livre {
 
     public Livre() {
     }
-    public Livre(int isbn, String titre, int quantiteTotal, int authorId) {
+    /*public Livre(int isbn, String titre, int quantiteTotal, int authorId) {
         this.isbn = isbn;
         this.titre = titre;
         this.quantiteTotal = quantiteTotal;
         this.authorId = authorId;
 
+    }*/
+
+    public Livre(int isbn, String titre, int quantiteTotal, int quantitePerdu, int authorId) {
+        this.isbn = isbn;
+        this.titre = titre;
+        this.quantiteTotal = quantiteTotal;
+        this.quantitePerdu = quantitePerdu;
+        this.authorId = authorId;
     }
-//    private List<Resarvation> Resarvations = new ArrayList<>();
+    //    private List<Resarvation> Resarvations = new ArrayList<>();
 //
 //    public List<Resarvation> getResarvations() {
 //        return Resarvations;

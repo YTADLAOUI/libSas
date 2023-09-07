@@ -94,5 +94,22 @@ public class LivreController {
             }catch (Exception e){e.printStackTrace();}
 
         }
+    public void rechercherParTitre(String titreRecherche) throws SQLException {
 
+        String sql = "SELECT * FROM livre WHERE titre LIKE ? AND softDelete=0";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, "%" + titreRecherche + "%");
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                System.out.println(resultSet.getInt("isbn"));
+                System.out.println(resultSet.getString("titre"));
+                System.out.println(resultSet.getInt("quantiteTotal"));
+                System.out.println(resultSet.getInt("quantitePerdu"));
+                System.out.println(resultSet.getInt("authorId"));
+                System.out.println("-------------------------------");
+            }
+        }
+    }
 }

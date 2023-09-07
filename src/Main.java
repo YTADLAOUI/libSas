@@ -5,6 +5,7 @@ import modules.Author;
 import modules.Livre;
 import modules.Resarvation;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -14,7 +15,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         LivreController livreController= new LivreController();
         Livre livre = new Livre();
         int choice;
@@ -101,7 +102,12 @@ public class Main {
 
                     break;
                 case 5:
+                    System.out.println("recherche de livres par titre:");
+                    do {
+                        livre.setTitre(input.nextLine()) ;
+                    } while (!livre.getTitre().matches("\\S+"));
 
+                    livreController.rechercherParTitre(livre.getTitre());
                     break;
 
 
@@ -119,6 +125,7 @@ public class Main {
         System.out.println("Press 2 pour insert un livre.");
         System.out.println("Press 3 Update livre");
         System.out.println("Press 4 Delete livre");
+        System.out.println("Press 5 recherch livre");
         System.out.println("Press 0 to Exit Application.");
         System.out.println(
                 "-------------------------------------------------------------------------------------------------------");
