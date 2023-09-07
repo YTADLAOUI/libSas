@@ -18,7 +18,7 @@ public class LivreController {
 
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("select * from livre JOIN author ON livre.authorID = author.id");
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from livre JOIN author ON livre.authorID = author.id where softDelete=0");
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 int isbn = resultSet.getInt("isbn");
@@ -86,6 +86,13 @@ public class LivreController {
             e.printStackTrace();
         }
     }
+        public void deleteLivre(Livre livre){
+            try{
+                PreparedStatement preparedStatement = connection.prepareStatement("UPDATE livre set softDelete=1 where isbn=?");
+                        preparedStatement.setInt(1,livre.getIsbn());
+                        preparedStatement.executeUpdate();
+            }catch (Exception e){e.printStackTrace();}
 
+        }
 
 }

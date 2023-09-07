@@ -69,7 +69,7 @@ public class Main {
                     break;
                 case 3:
                     do{
-                        System.out.print("modifier Unique Isbn: ");
+                        System.out.print("Entre Unique Isbn: ");
                         livre.setIsbn(input.nextInt());
                     }while(!livreController.checkIsbn(livre.getIsbn()));
                     System.out.print("modifer titre: ");
@@ -92,6 +92,15 @@ public class Main {
                     livreController.updateLivre(livre);
                     break;
                 case 4:
+                    do{
+                    System.out.println("Delete livre entre isbn:");
+                        livre.setIsbn(input.nextInt());
+                        livreController.deleteLivre(livre);
+                    }
+                    while (!livreController.checkIsbn(livre.getIsbn()));
+
+                    break;
+                case 5:
 
                     break;
 
