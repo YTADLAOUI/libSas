@@ -55,6 +55,7 @@ public class LivreController {
         }
     }
 
+
     public  Boolean checkIsbn(int Isbn) {
             try{ PreparedStatement preparedStatement= connection.prepareStatement("SELECT COUNT(*) FROM lIVRE WHERE isbn=?");
                 preparedStatement.setInt(1,Isbn);
@@ -72,16 +73,15 @@ public class LivreController {
             }
         return false;
     }
-
     public void updateLivre(Livre livre){
-
+        System.out.println("yeep");
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE livre SET`titre`=?,`quantiteTotal`=?,`authorId`=? where isbn= ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE livre SET titre=?,quantiteTotal=?,authorId=? where isbn= ?");
             preparedStatement.setString(1,livre.getTitre());
             preparedStatement.setInt(2, livre.getQuantiteTotal());
             preparedStatement.setInt(3,livre.getAuthorId());
             preparedStatement.setInt(4,livre.getIsbn());
-
+            preparedStatement.executeUpdate();
         }catch (Exception e){
             e.printStackTrace();
         }

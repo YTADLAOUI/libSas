@@ -71,7 +71,7 @@ public class Main {
                     do{
                         System.out.print("modifier Unique Isbn: ");
                         livre.setIsbn(input.nextInt());
-                    }while(livreController.checkIsbn(livre.getIsbn()));
+                    }while(!livreController.checkIsbn(livre.getIsbn()));
                     System.out.print("modifer titre: ");
                     do {
                         livre.setTitre(input.nextLine()) ;
