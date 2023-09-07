@@ -49,9 +49,6 @@ public class LivreController {
             preparedStatement.setInt(4, livre.getAuthorId());
             preparedStatement.executeUpdate();
             System.out.println("goood");
-            /*livre.getIsbn();
-            livre.getAuthorId();
-            livre.getQuantiteTotal();*/
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("Failed to insert le livre dans la baseDonne.");
@@ -59,12 +56,9 @@ public class LivreController {
     }
 
     public  Boolean checkIsbn(int Isbn) {
-
-        try (
-                PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) FROM livre WHERE isbn = ?")) {
-            preparedStatement.setInt(1, Isbn);
-
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+            try{ PreparedStatement preparedStatement= connection.prepareStatement("SELECT COUNT FROM lIVRE WHERE isbn=?");
+                preparedStatement.setInt(1,Isbn);
+                ResultSet resultSet = preparedStatement.executeQuery();
                 resultSet.next();
                 int count = resultSet.getInt(1);
 
@@ -73,10 +67,9 @@ public class LivreController {
                 } else {
                     return false;
                 }
+            }catch (Exception e){
+                e.printStackTrace();
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         return false;
     }
 
