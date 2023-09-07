@@ -73,4 +73,19 @@ public class LivreController {
         return false;
     }
 
+    public void updateLivre(Livre livre){
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE livre SET`titre`=?,`quantiteTotal`=?,`authorId`=? where isbn= ?");
+            preparedStatement.setString(1,livre.getTitre());
+            preparedStatement.setInt(2, livre.getQuantiteTotal());
+            preparedStatement.setInt(3,livre.getAuthorId());
+            preparedStatement.setInt(4,livre.getIsbn());
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
 }

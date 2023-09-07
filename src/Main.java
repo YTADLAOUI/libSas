@@ -89,6 +89,7 @@ public class Main {
                     }
                     livre.setAuthorId(input.nextInt());
                     input.nextLine();
+                    livreController.updateLivre(livre);
                     break;
                 case 4:
 
