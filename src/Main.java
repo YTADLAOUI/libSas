@@ -1,3 +1,4 @@
+import Controllers.AuthorController;
 import Controllers.LivreController;
 import enums.StatusLivre;
 import modules.Adherent;
@@ -17,6 +18,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws SQLException {
         LivreController livreController= new LivreController();
+        AuthorController authorControlle = new AuthorController();
         Livre livre = new Livre();
         int choice;
         Scanner input = new Scanner(System.in);
@@ -94,7 +96,7 @@ public class Main {
                     break;
                 case 4:
                     do{
-                    System.out.println("Delete livre entre isbn:");
+                    System.out.println("Delete un livre entre isbn:");
                         livre.setIsbn(input.nextInt());
                         livreController.deleteLivre(livre);
                     }
@@ -102,12 +104,16 @@ public class Main {
 
                     break;
                 case 5:
-                    System.out.println("recherche de livres par titre:");
+                    System.out.println("Recherche des livres par titre:");
                     do {
                         livre.setTitre(input.nextLine()) ;
                     } while (!livre.getTitre().matches("\\S+"));
 
                     livreController.rechercherParTitre(livre.getTitre());
+                    break;
+                    case 6:
+                        System.out.println("Afficher tout les authors ");
+                        authorControlle.index();
                     break;
 
 
@@ -126,6 +132,9 @@ public class Main {
         System.out.println("Press 3 Update livre");
         System.out.println("Press 4 Delete livre");
         System.out.println("Press 5 recherch livre");
+        System.out.println("Press 6 Afficher tout les authores");
+        System.out.println("Press 7 recherch livre");
+        System.out.println("Press 8 recherch livre");
         System.out.println("Press 0 to Exit Application.");
         System.out.println(
                 "-------------------------------------------------------------------------------------------------------");

@@ -99,7 +99,7 @@ public class LivreController {
         String sql = "SELECT * FROM livre WHERE titre LIKE ? AND softDelete=0";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setString(1, "%" + titreRecherche + "%");
+            preparedStatement.setString(1,  titreRecherche + "%");
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
