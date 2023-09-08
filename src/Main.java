@@ -128,9 +128,9 @@ public class Main {
                     do{
                         System.out.println("Delete un author entre id:");
                         author.setId(input.nextInt());
-                        authorControlle.delete(author);
                     }
                     while (authorControlle.checkId(author));
+                    authorControlle.delete(author);
                     break;
 
                 default:
