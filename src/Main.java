@@ -20,6 +20,7 @@ public class Main {
         LivreController livreController= new LivreController();
         AuthorController authorControlle = new AuthorController();
         Livre livre = new Livre();
+        Author author =new Author();
         int choice;
         Scanner input = new Scanner(System.in);
         do {
@@ -115,6 +116,13 @@ public class Main {
                         System.out.println("Afficher tout les authors ");
                         authorControlle.index();
                     break;
+                    case 7:
+                        System.out.println("insert un author");
+                        do {
+                            author.setNom(input.nextLine());
+                        } while (!author.getNom().matches("\\S+"));
+                        authorControlle.store(author);
+                    break;
 
 
                 default:
@@ -133,8 +141,8 @@ public class Main {
         System.out.println("Press 4 Delete livre");
         System.out.println("Press 5 recherch livre");
         System.out.println("Press 6 Afficher tout les authores");
-        System.out.println("Press 7 recherch livre");
-        System.out.println("Press 8 recherch livre");
+        System.out.println("Press 7 insert un author");
+        System.out.println("Press 8 delete un author");
         System.out.println("Press 0 to Exit Application.");
         System.out.println(
                 "-------------------------------------------------------------------------------------------------------");

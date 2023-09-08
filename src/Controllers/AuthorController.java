@@ -1,9 +1,11 @@
 package Controllers;
 import connection.MyJDBC;
+import modules.Author;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class AuthorController {
     Connection connection = MyJDBC.getConnection();
@@ -22,5 +24,15 @@ public class AuthorController {
            }
 
    }
+   public void store(Author author)  {
+       try {
+           PreparedStatement preparedStatement = connection.prepareStatement("insert into  author(nom) values (?)");
+           preparedStatement.setString(1,author.getNom());
+           preparedStatement.executeUpdate();
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+   }
+
 
 }
