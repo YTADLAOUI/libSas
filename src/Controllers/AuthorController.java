@@ -33,6 +33,31 @@ public class AuthorController {
            e.printStackTrace();
        }
    }
-
+        public  void delete(Author author){
+           try {
+                PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM author where id= ?");
+                preparedStatement.setInt(1, author.getId());
+                preparedStatement.executeUpdate();
+           }catch (Exception e){
+               e.printStackTrace();
+           }
+        }
+        public  boolean checkId(Author author){
+           try{
+               PreparedStatement preparedStatement= connection.prepareStatement("SELECT COUNT(*) from author where id=?");
+               preparedStatement.setInt(1,author.getId());
+               ResultSet resultSet= preparedStatement.executeQuery();
+               resultSet.next();
+              int count = resultSet.getInt(1);
+              if(count>0){
+                  return false;
+              }else{
+                  return true;
+              }
+           }catch (Exception e){
+               e.printStackTrace();
+           }
+           return false;
+        }
 
 }

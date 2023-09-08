@@ -123,7 +123,15 @@ public class Main {
                         } while (!author.getNom().matches("\\S+"));
                         authorControlle.store(author);
                     break;
+                case 8:
 
+                    do{
+                        System.out.println("Delete un author entre id:");
+                        author.setId(input.nextInt());
+                        authorControlle.delete(author);
+                    }
+                    while (authorControlle.checkId(author));
+                    break;
 
                 default:
                     System.out.println("ENTER A VALID CHOIE ENTRE 0 AND 1");
