@@ -47,6 +47,30 @@ public class Resarvation {
         this.dateDeRetoure = dateDeRetoure;
     }
 
+    public int getAdherentID() {
+        return adherentID;
+    }
+
+    public void setAdherentID(int adherentID) {
+        this.adherentID = adherentID;
+    }
+
+    public int getLivreID() {
+        return livreID;
+    }
+
+    public StatusLivre getStatusLivre() {
+        return statusLivre;
+    }
+
+    public void setStatusLivre(StatusLivre statusLivre) {
+        this.statusLivre = statusLivre;
+    }
+
+    public void setLivreID(int livreID) {
+        this.livreID = livreID;
+    }
+
     @Override
     public String toString() {
         return "Resarvation{" +
