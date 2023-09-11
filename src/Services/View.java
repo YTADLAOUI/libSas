@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.concurrent.Delayed;
 
 
 public class View {
@@ -13,6 +14,7 @@ public class View {
     LivreService livreService =new LivreService();
     AuthorService authorService=new AuthorService();
     ReservationService reservationService=new ReservationService();
+    StatistiqueService statistiqueService=new StatistiqueService();
 
 public void AffichageView() throws ParseException {
 
@@ -65,12 +67,10 @@ public void AffichageView() throws ParseException {
                 reservationService.updateReservation();
                 break;
             case 12:
-
-
+                    statistiqueService.afficherCountPerdu();
                 break;
             case 13:
-
-
+                statistiqueService.afficherCountEmprunte();
                 break;
 
             default:
