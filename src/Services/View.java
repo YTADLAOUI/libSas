@@ -14,7 +14,7 @@ public class View {
     AuthorService authorService=new AuthorService();
     ReservationService reservationService=new ReservationService();
     Scanner input=new Scanner(System.in);
-public void AffichageView(){
+public void AffichageView() throws ParseException {
 
     do {
 
@@ -65,6 +65,13 @@ public void AffichageView(){
               reservationService.StoreReservation();
                 break;
             case 11:
+                reservationService.updateReservation();
+                break;
+            case 12:
+
+
+                break;
+            case 13:
 
 
                 break;

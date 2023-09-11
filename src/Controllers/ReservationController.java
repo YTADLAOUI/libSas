@@ -1,16 +1,14 @@
 package Controllers;
 
 import connection.MyJDBC;
+import enums.StatusLivre;
 import modules.Resarvation;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 public class ReservationController {
     Connection connection = MyJDBC.getConnection();
-//    Resarvation resarvation =new Resarvation();
+    Resarvation resarvation =new Resarvation();
     public void index (){
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from reservation");
@@ -50,5 +48,31 @@ public class ReservationController {
         e.printStackTrace();
         }
     }
+     public void updateReservation(Resarvation resarvation) {
 
+                try {
+                 PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `reservation` SET `dateDeRetoure`=?,`statusLivre`=? where id =?");
+                 StatusLivre statusLivre= resarvation.getStatusLivre();
+
+                    Date dateReteur = resarvation.getDateDeRetoure()==null ? null :  new Date(resarvation.getDateDeRetoure().getTime());
+
+                 preparedStatement.setDate(1,dateReteur);
+                 preparedStatement.setString(2, statusLivre.status);
+                 preparedStatement.setInt(3,resarvation.getId());
+                 preparedStatement.executeUpdate();
+             }catch(Exception e){
+                e.printStackTrace();
+            }
+    }
+    /*public void LivrePerdu(Resarvation resarvation) {
+                try {
+                 PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `reservation` SET `statusLivre`=? where id =?");
+                 StatusLivre statusLivre= resarvation.getStatusLivre();
+                 preparedStatement.setString(1, statusLivre.status);
+                 preparedStatement.setInt(2,resarvation.getId());
+                 preparedStatement.executeUpdate();
+             }catch(Exception e){
+                e.printStackTrace();
+            }
+    }*/
 }

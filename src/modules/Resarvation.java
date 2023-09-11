@@ -4,6 +4,16 @@ import enums.StatusLivre;
 import java.util.Date;
 
 public class Resarvation {
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private Date dateDemprunt;
     private Date datePrevueDeRetoure;
     private Date dateDeRetoure;
