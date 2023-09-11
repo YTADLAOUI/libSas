@@ -21,13 +21,13 @@ public class ReservationController {
                 int adherentID=resultSet.getInt("adherentID");
                 int livreID=resultSet.getInt("livreID");
                 String statusLivre=resultSet.getString("statusLivre");
-                System.out.println("dateDemprunt"+ id);
-                System.out.println("dateDemprunt"+dateDemprunt);
-                System.out.println("datePrevueDeRetoure"+datePrevueDeRetoure);
-                System.out.println("dateDeRetoure"+dateDeRetoure);
-                System.out.println("livreID"+adherentID);
-                System.out.println("statusLivre"+livreID);
-                System.out.println("statusLivre"+statusLivre);
+                System.out.println("dateID :"+ id);
+                System.out.println("dateDemprunt :"+dateDemprunt);
+                System.out.println("datePrevueDeRetoure :"+datePrevueDeRetoure);
+                System.out.println("dateDeRetoure :"+dateDeRetoure);
+                System.out.println("livreID :"+adherentID);
+                System.out.println("statusLivre :"+livreID);
+                System.out.println("statusLivre :"+statusLivre);
                 System.out.println("--------------------------");
             }
 
@@ -53,9 +53,7 @@ public class ReservationController {
                 try {
                  PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `reservation` SET `dateDeRetoure`=?,`statusLivre`=? where id =?");
                  StatusLivre statusLivre= resarvation.getStatusLivre();
-
                     Date dateReteur = resarvation.getDateDeRetoure()==null ? null :  new Date(resarvation.getDateDeRetoure().getTime());
-
                  preparedStatement.setDate(1,dateReteur);
                  preparedStatement.setString(2, statusLivre.status);
                  preparedStatement.setInt(3,resarvation.getId());
@@ -64,15 +62,5 @@ public class ReservationController {
                 e.printStackTrace();
             }
     }
-    /*public void LivrePerdu(Resarvation resarvation) {
-                try {
-                 PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `reservation` SET `statusLivre`=? where id =?");
-                 StatusLivre statusLivre= resarvation.getStatusLivre();
-                 preparedStatement.setString(1, statusLivre.status);
-                 preparedStatement.setInt(2,resarvation.getId());
-                 preparedStatement.executeUpdate();
-             }catch(Exception e){
-                e.printStackTrace();
-            }
-    }*/
+
 }

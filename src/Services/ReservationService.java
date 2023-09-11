@@ -39,7 +39,6 @@ public class ReservationService {
                 datePrevueDeRetoure = dateFormat.parse(dateString);
             } catch (ParseException e) {
                 System.out.println("Invalid date format. Please try again.");
-                System.out.println("HI");
             }
         } while (datePrevueDeRetoure == null);
         resarvation.setDatePrevueDeRetoure( datePrevueDeRetoure);

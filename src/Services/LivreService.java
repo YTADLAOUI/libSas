@@ -13,9 +13,11 @@ public class LivreService {
         livreController.index();
     }
     public void storeLivre(){
+
         do {
             System.out.print("Enter Unique Isbn: ");
             livre.setIsbn(input.nextInt());
+
         }while (livreController.checkIsbn(livre.getIsbn()));
         System.out.print("Enter titre: ");
         do {

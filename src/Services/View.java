@@ -8,19 +8,16 @@ import java.util.Scanner;
 
 public class View {
 
-
+    Scanner input=new Scanner(System.in);
     int choice;
     LivreService livreService =new LivreService();
     AuthorService authorService=new AuthorService();
     ReservationService reservationService=new ReservationService();
-    Scanner input=new Scanner(System.in);
+
 public void AffichageView() throws ParseException {
 
     do {
-
-
         showMenu();
-
 
         while (!input.hasNextInt()) {
             System.out.println("ENTER A VALID CHOIE ENTRE 0 AND 1.");
