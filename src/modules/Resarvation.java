@@ -32,7 +32,7 @@ public class Resarvation {
     }
 
     public Date getDatePrevueDeRetoure() {
-        return datePrevueDeRetoure;
+        return  datePrevueDeRetoure;
     }
 
     public void setDatePrevueDeRetoure(Date datePrevueDeRetoure) {

@@ -18,7 +18,7 @@ public class Author {
     }
 
     private String nom;
-    private List<Livre> Livres = new ArrayList<>();
+//    private List<Livre> Livres = new ArrayList<>();
 
 
     public String getNom() {
@@ -33,19 +33,18 @@ public class Author {
         this.nom = nom;
     }
 
-    public List<Livre> getLivres() {
-        return Livres;
-    }
+//    public List<Livre> getLivres() {
+//        return Livres;
+//    }
 
-    public void setLivres(List<Livre> livres) {
-        Livres = livres;
-    }
+//    public void setLivres(List<Livre> livres) {
+//        Livres = livres;
+//    }
 
     @Override
     public String toString() {
         return "Author{" +
                 "nom='" + nom + '\'' +
-                ", Livres=" + Livres +
                 '}';
     }
 }

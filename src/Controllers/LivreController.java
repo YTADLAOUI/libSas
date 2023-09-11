@@ -94,7 +94,7 @@ public class LivreController {
             }catch (Exception e){e.printStackTrace();}
 
         }
-    public void rechercherParTitre(String titreRecherche) throws SQLException {
+    public void rechercherParTitre(String titreRecherche)  {
 
         String sql = "SELECT * FROM livre WHERE titre LIKE ? AND softDelete=0";
 
@@ -110,6 +110,8 @@ public class LivreController {
                 System.out.println(resultSet.getInt("authorId"));
                 System.out.println("-------------------------------");
             }
+        }catch (Exception e){
+e.printStackTrace();
         }
     }
 }
