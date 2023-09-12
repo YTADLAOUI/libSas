@@ -2,6 +2,7 @@ package Controllers;
 
 import connection.MyJDBC;
 import enums.StatusLivre;
+import modules.Livre;
 import modules.Resarvation;
 
 import java.sql.*;
@@ -62,5 +63,20 @@ public class ReservationController {
                 e.printStackTrace();
             }
     }
+            public  boolean checkDisponiblite(int livreID){
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT l.quantiteTotal - l.quantitePerdu - COUNT(*) as quantiteRestant FROM livre l JOIN reservation r ON l.isbn=r.livreID WHERE l.isbn = ? AND r.statusLivre = \"Emprunté\";");
+                preparedStatement.setInt(1,livreID);
+                ResultSet resultSet = preparedStatement.executeQuery();
+                resultSet.next();
+                int QuantiteRestante= resultSet.getInt(1);
 
+                if(QuantiteRestante>0){
+                    return true;
+                }else {
+                    return false;
+                }
+        }catch (Exception e){e.printStackTrace();}
+        return false;
+            }
 }

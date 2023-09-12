@@ -2,6 +2,7 @@ package Services;
 
 import Controllers.ReservationController;
 import enums.StatusLivre;
+import modules.Livre;
 import modules.Resarvation;
 
 import java.text.ParseException;
@@ -31,8 +32,16 @@ public class ReservationService {
         Date datePrevueDeRetoure = null;
     public void StoreReservation(){
 
-        System.out.print("Enter DatePrevueDeRetoure (yyyy-MM-dd):");
+            System.out.print("Entre livreID: ");
+            while (!input.hasNextInt()) {
+                System.out.print("Entre livreID: ");
+                input.next();
+            }
+            resarvation.setLivreID(input.nextInt());
+            input.nextLine();
+            if(reservationController.checkDisponiblite(resarvation.getLivreID())){
         do {
+        System.out.print("Enter DatePrevueDeRetoure (yyyy-MM-dd):");
             String dateString = input.nextLine();
 
             try {
@@ -42,13 +51,6 @@ public class ReservationService {
             }
         } while (datePrevueDeRetoure == null);
         resarvation.setDatePrevueDeRetoure( datePrevueDeRetoure);
-        System.out.print("Entre livreID: ");
-        while (!input.hasNextInt()) {
-            System.out.print("Entre livreID: ");
-            input.next();
-        }
-        resarvation.setLivreID(input.nextInt());
-        input.nextLine();
         System.out.print("Entre adherentID: ");
         while (!input.hasNextInt()) {
             System.out.print("Entre adherentID: ");
@@ -57,7 +59,11 @@ public class ReservationService {
         resarvation.setAdherentID(input.nextInt());
         input.nextLine();
         reservationController.store(resarvation);
-    }
+        }else {
+                System.out.println("out stock");
+            }
+     }
+
     public void updateReservation() throws ParseException {
             Date dateDeRetoure=null;
             boolean replay;
